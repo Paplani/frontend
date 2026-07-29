@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <h1 class="h1">운동화 주문하기</h1>
+    </div>
+    <form action="" method="get" id="form1">
+      <fieldset form="form1" class="field1">
+        <legend>사이즈 선택</legend>
+        <label
+          ><input
+            type="radio"
+            name="size1"
+            id="250mm"
+            value="250mm"
+            checked
+          />250mm</label
+        >
+        <label for=""
+          ><input
+            type="radio"
+            name="size1"
+            id="260mm"
+            value="260mm"
+          />260mm</label
+        >
+        <label for=""
+          ><input
+            type="radio"
+            name="size1"
+            id="270mm"
+            value="270mm"
+          />270mm</label
+        >
+      </fieldset>
+      <fieldset form="form1" class="field2">
+        <legend>색상 선택</legend>
+        <label for="chosen_color">색상:</label>
+        <select name="colors" id="colors" size="1">
+          <optgroup label="어두운 색">
+            <option value="black">블랙</option>
+            <option value="black">네이비</option>
+          </optgroup>
+          <optgroup label="밝은 색">
+            <option value="white">화이트</option>
+            <option value="skyblue">스카이블루</option>
+            <option value="silver">실버</option>
+          </optgroup>
+        </select>
+      </fieldset>
+      <fieldset form="form1" class="field3">
+        <legend>배송지</legend>
+        <label for="addr">도시: </label>
+        <!-- select 로 해서 서울 부산 대구로 3개 옵션만 주는걸로 다시 만들어보기-->
+        <select name="addr" id="addr" size:1>
+          <option value="Seoul">서울</option>
+          <option value="Busan">부산</option>
+          <option value="Daegu">대구</option>
+        </select>
+      </fieldset>
+      <fieldset form="form1" class="field4">
+        <legend>요청사항</legend>
+        <textarea
+          name=""
+          id=""
+          cols:30
+          rows:30
+          placeholder="배송 시 요청사항을 입력하세요"
+        ></textarea>
+      </fieldset>
+    </form>
+    <button type="submit">주문하기</button>
+    <button type="reset">초기화</button>
+  </body>
+</html>

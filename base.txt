@@ -1,0 +1,18 @@
+web 어플리케이선
+
+forntend : html, css, javascript, typescript / react, vue
+backend : database
+          python based backend (Django, Fastapi, Flask)
+          java based backend (Springboot, Spring)
+          javascript based backend ( Node.js)
+
+
+prettier, live server, 
+
+
+
+
+
+HTML : 페이지 구조
+Hyper Text Markup Language
+    Markup : 문서에 구조나 의미를 표시하기 위해 태그를 추가하는 것
