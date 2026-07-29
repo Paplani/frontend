@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      td:hover {
+        background-color: skyblue;
+        font-size: 20px;
+      }
+      /* [disabled]{
+        background-color: darkseagreen;
+      } */
+      input:disabled {
+        background-color: darkgray;
+      }
+      input:checked + span {
+        color: red;
+      }
+      h1::before {
+        content: "before";
+      }
+      h1::after {
+        content: "after";
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <table border="1" style="width: 600px">
+      <tr>
+        <td>name</td>
+        <td>address</td>
+        <td>contact</td>
+      </tr>
+      <tr>
+        <th>Hong-guildong</th>
+        <th>estern creek</th>
+        <th>01012345678</th>
+      </tr>
+    </table>
+
+    <form action="">
+      <fieldset>
+        <legend>사용자 정보</legend>
+        <label
+          >이름<input type="text" name="" id="" value="홍길동" disabled
+        /></label>
+      </fieldset>
+      <fieldset>
+        <legend>신청과목</legend>
+        <!-- ctrl + alt + 아래화살표 : 동일한 영역을 한꺼번에 수정할때-->
+        <label for=""
+          ><input type="radio" name="subject" id="" /><span>회화</span></label
+        >
+        <label for=""
+          ><input type="radio" name="subject" id="" checked /><span
+            >문법</span
+          ></label
+        >
+        <label for=""
+          ><input type="radio" name="subject" id="" /><span>작문</span></label
+        >
+      </fieldset>
+    </form>
+    <h1>의사요소 선택자</h1>
+    <ul>
+      <li>리스트1</li>
+      <li>리스트2</li>
+    </ul>
+  </body>
+</html>

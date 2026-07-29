@@ -1,0 +1,66 @@
+p {
+  color: blue;
+}
+
+#Lastname {
+  color: red;
+}
+
+.intro {
+  background-color: mediumturquoise;
+}
+
+h1,
+h3,
+th {
+  color: green;
+}
+
+th,
+td {
+  padding: 10px;
+  border: 2px solid gray;
+}
+
+/* 테이블의 선을 만들어주기 */
+table {
+  border-collapse: collapse;
+  width: 80%;
+}
+
+h1:hover {
+  background-color: darkgoldenrod;
+}
+
+/* title 속성중 beautiful 이 포함된 요소를 밑줄 */
+[title~="beautiful"] {
+  text-decoration: underline;
+}
+
+.myquote {
+  border: 2px solid purple;
+}
+
+ul#Listfriends + .myquote {
+  border: 2px dotted black;
+}
+
+/* 테이블의 짝수 행 선택해 배경색 주기 */
+/* 테이블의 첫째 행(헤더)의 배경색 검은색, 글자색 흰색 */
+
+/* 2n 대신에 even 써도 됨. even, odd가능 */
+tr:nth-child(2n) {
+  background-color: dodgerblue;
+}
+
+table tr:first-child {
+  background-color: black;
+}
+
+table tr > th {
+  color: white;
+}
+
+td {
+  text-align: center;
+}

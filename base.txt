@@ -10,7 +10,7 @@ backend : database
 prettier, live server, 
 
 
-
+selector ->  css, javascrip, 크롤링에 사용
 
 
 HTML : 페이지 구조
