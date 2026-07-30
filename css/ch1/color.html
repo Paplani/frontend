@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      p {
+        color: rgb(255, 255, 0, 0.5);
+        background-color: lightskyblue;
+        border: 2px dotted red;
+      }
+      .bg {
+        width: 300px;
+        height: 300px;
+        border: 1px solid black;
+        /* background-image: url("https://placehold.co/100");
+        background-repeat: no-repeat;
+        background-position: 150px bottom; */
+        /* background: url("https://placehold.co/100") no-repeat 40% 60%; */
+        background: url("https://placehold.co/500") no-repeat center;
+        background-size: contain;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 색상 : 
+        1) 이름 : 
+        2) rgb: rgb(255,0,123)
+        3) rgba : rgba(255,0,123,0.5)
+        4) hex : 16진수
+        5) hsl(a)
+        
+        background-image : 크기에 맞춰 반복이 됨
+        background-repeat : repeat(기본값), repeat-x, repeat-y, no-repeat
+        background-position : left top(기본값), 가로(left, center, right), 세로(top, center, bottom)
+        background-size : contain;  이미지의 비례와 상관없이 배경 크기에 맞춰서 자동으로 처리
+        -->
+    <p>
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum laborum neque cumque beatae deserunt commodi
+      harum, dignissimos maxime culpa excepturi fugiat necessitatibus omnis quisquam voluptatibus velit incidunt optio
+      doloremque eaque!
+    </p>
+    <div>
+      <img src="https://placehold.co/100" alt="" />
+    </div>
+    <div class="bg"></div>
+  </body>
+</html>

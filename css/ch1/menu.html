@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
+      /* 블릿기호 제거 */
+      ul {
+        list-style: none;
+      }
+      /* li는 블록요소 */
+      ul > li {
+        display: inline-block;
+        margin-right: 2em;
+        padding: 10px 20px;
+      }
+      div {
+        background-color: orangered;
+        width: 200px;
+        height: 100px;
+        margin: 0 auto; /* block 요소를 가로 가운데 정렬 */
+      }
+      div.box {
+        background: orchid;
+        display: inline-block;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li>홈</li>
+      <li>회사 소개</li>
+      <li>제품 소개</li>
+      <li>고객센터</li>
+      <li>커뮤니티</li>
+    </ul>
+    <div></div>
+    <div class="box"></div>
+  </body>
+</html>

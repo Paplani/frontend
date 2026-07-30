@@ -1,0 +1,14 @@
+table {
+  border: 2px solid black;
+  width: 600px;
+  margin-bottom: 50px;
+  /* 테이블 줄 한줄로 그리는 법 */
+  border-collapse: collapse;
+  caption-side: top;
+}
+th,
+td {
+  border: 2xp solid black;
+  padding: 0.4em 0.8em;
+  width: 600px;
+}

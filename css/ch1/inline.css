@@ -1,10 +1,23 @@
-h1 {
+* {
+  margin: 0;
+  padding: 0;
+}
+div {
   background-color: skyblue;
   width: 500px;
-  height: 300px;
+  /* height: 300px;  */
+  /* display: inline; */
+
+  /* 값 부여는 시계방향으로 */
+  padding: 10px 20px;
+  margin: 20px;
 }
+
 span {
   background-color: blueviolet;
+  /* display: inline-block; */
   width: 200px;
-  height: 300px;
+  /* height: 300px;  */
+  padding: 10px;
+  margin: 20px;
 }

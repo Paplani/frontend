@@ -1,0 +1,22 @@
+/* css 변수 : -- (대시를 두번 앞에 붙임) */
+@import url(./common.css);
+
+body {
+  margin: 0;
+  padding: 24px;
+}
+
+.not-good {
+  text-decoration: var(--not-good);
+}
+
+.wrong {
+  text-decoration: var(--wrong);
+}
+u {
+  /* warn 변수가 있으면 쓰고 아니면 기본값 */
+  background-color: var(--warn, lightblue);
+}
+p {
+  font-size: var(--font-normal);
+}

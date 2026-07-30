@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* @import : 다른 css 포함할때 사용 */
+      @import url("https://fonts.googleapis.com/css2?family=Hi+Melody&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+      html {
+        font-size: 16px;
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+      }
+      p {
+        font-style: italic;
+        font-weight: bold;
+        /* font-size: 20px; */
+      }
+      div {
+        font-size: 1em;
+      }
+      p.line {
+        text-decoration: dotted overline line-through underline;
+      }
+      .transform {
+        text-transform: uppercase;
+      }
+      .shadow {
+        /* x좌표 y좌표 (흐림) 색상 */
+        text-shadow:
+          1px 0 white,
+          -1px 0 white,
+          0 1px white,
+          0 -1px white,
+          1px 1px white,
+          1px -1px white,
+          -1px 1px white,
+          -1px -1px white,
+          /* 바깥쪽 자두색 */ 2px 0 plum,
+          -2px 0 plum,
+          0 2px plum,
+          0 -2px plum,
+          2px 1px plum,
+          -2px 1px plum,
+          1px 2px plum,
+          1px -2px plum,
+          2px -1px plum,
+          -2px -1px plum,
+          -1px 2px plum,
+          -1px -2px plum,
+          2px 2px plum,
+          2px -2px plum,
+          -2px 2px plum,
+          -2px -2px plum;
+      }
+      .shadow2 {
+        text-shadow: 2px 2px lightgray;
+      }
+      .align {
+        /* text-align: justify; */
+        text-indent: 1em;
+        /* letter-spacing: -2px; */
+        /* word-spacing: 0.5em; */
+        line-height: 1.5em;
+      }
+      .open-sans-text {
+        font-family: "Open Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 600;
+        font-style: normal;
+        font-variation-settings: "wdth" 100;
+      }
+      .hi-melody-regular {
+        font-family: "Hi Melody", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 글자(font), 텍스트 스타일 -->
+    <!-- 기울임 : font-style(oblique, italic)
+         굵기 : font-weight   400이 기본, bold(700)
+         글자크기 : font-size (px, em, rem, %)
+         em, rem, % : 부모요소의 크기에 비례해서 표현
+         font-family: 사용할 글꼴 지정
+
+         텍스트 스타일(text-)
+         text-decoration
+         text-shadow
+         text-align : justify(많이 사용)
+         text-indent : 들여쓰기
+
+         간격
+         글자간 간격 : letter-spacing
+         단어 간격 : word-spacing
+
+         줄높이 : line-height   일반적으로 1.5em 사용
+         -->
+    <p>서체 스타일과 굵기</p>
+    바깥
+    <div>
+      중간
+      <div>안쪽</div>
+    </div>
+    <p class="line hi-melody-regular">텍스트 데코레이션</p>
+    <div class="transform">HTML & CSS Programming is fun!</div>
+    <div class="shadow">text-shadow를 사용하면 텍스트에 그림자 적용</div>
+    <div class="shadow2">text-shadow를 사용하면 텍스트에 그림자 적용</div>
+    <p class="align open-sans-text">
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur quidem, quam placeat libero nulla minus!
+      Aut error inventore id magnam amet, necessitatibus repudiandae laudantium aliquam aspernatur neque voluptate
+      accusamus enim in dolore impedit? Modi, reprehenderit distinctio! Possimus dicta ad debitis soluta enim quae
+      dolorem est voluptas tempore fugiat. Porro, quo?
+    </p>
+  </body>
+</html>

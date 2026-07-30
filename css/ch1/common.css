@@ -1,0 +1,18 @@
+/* css 변수 : -- (대시를 두번 앞에 붙임) */
+u {
+  --not-good: wavy underline orange;
+  --wrong: wavy underline orange;
+}
+
+.wrong {
+  --warn: yellow;
+}
+
+:root {
+  --font--small: 8px;
+  --font--normal: 16px;
+  --font-large: 24px;
+  --font-x-large: 24px;
+  --font-xx-large: 32px;
+  --font-xxx-large: 40px;
+}

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./inherit.css" />
+  </head>
+  <body>
+    <!-- 
+        css 상속
+        color, font 관련, text-align, text-decoration
+        line-height, text-shadow, letter-spacing, list-style
+    -->
+    <div class="blue">
+      <span class="class-label">.blue</span>
+      바깥쪽 부모
+      <div>
+        속성 값을 지정하지 않은 자식은 부모의 속성값을 상속받음
+        <div>상속되는 속성들의 값은 그 아래 후손들에게 전달</div>
+      </div>
+    </div>
+    <div class="green">
+      <span class="class-label">.green</span>
+      자식에서 다른 속성값을 특정하면 부모ㅛ의 값을 덮어씀
+      <div class="red">
+        <span class="class-label">.red</span>
+        다른 값으로 대체되는 자식 속성
+      </div>
+    </div>
+    <div class="parent">
+      <span class="class-label">.parent</span>
+      <div>자식1</div>
+      <div>자식2</div>
+      <div>자식3</div>
+    </div>
+  </body>
+</html>

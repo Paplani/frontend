@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .outer {
+        width: 440px;
+        height: 320px;
+        background-color: #eee;
+        border: 2px solid black;
+        overflow: auto;
+      }
+      .inner {
+        width: 200%;
+        height: 80%;
+        padding: 16px;
+        background-color: beige;
+        border: 2px solid darkorange;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- overflow : 부모 요소보다 큰 자식 요소 -->
+    <!-- overflow: auto : 스크롤바 자동 생성(넘어가는 지점에 스크롤바 생성) 
+        overflow: hidden : 넘치는 영역 숨김
+        overflow: scroll : 스크롤바 생성(무조건 스크롤바를 생성) 
+        overflow: visible : 넘치는 부분 그대로 보여주기
+        -->
+    <section>
+      <div class="outer">
+        <div class="inner"></div>
+      </div>
+    </section>
+  </body>
+</html성
