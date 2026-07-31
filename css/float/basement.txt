@@ -1,0 +1,11 @@
+레이아웃
+
+1. float - float 속성은 위로 뜨는 상태
+           float 속성 지정하면 지정한 높이나 너비를 반영해 블록 요소처럼 동작
+           clear : 방향; clear:left; clear:fight; clear:both; => float속성 해제
+           문제점 : 부모의 크기 문제점
+           => clear
+           => 부모에 overflow:hidden;
+           => 가상 요소
+
+2. flex

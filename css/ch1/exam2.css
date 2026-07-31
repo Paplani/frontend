@@ -1,0 +1,89 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.gothic-a1-regular {
+  font-family: "Gothic A1", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  background-color: #18181b;
+  color: #ffffff;
+}
+
+.login-box {
+  width: 350px;
+  margin: 100px auto;
+  padding: 30px;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  background-color: #27272a;
+  position: relative;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+  border-radius: 10px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+
+label {
+  display: inline-block;
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  font-size: 16px;
+  margin-bottom: 20px;
+  padding: 10px;
+  background: #3a3a3d;
+  color: white;
+  border: 1px solid #555;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid hotpink;
+  border-radius: 5px;
+  background-color: #3b82f6;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.join {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: gray;
+}
+
+.new {
+  position: absolute;
+  bottom: calc(95%);
+  left: calc(89%);
+  /* border: 1px solid red; */
+  padding: 4px 10px;
+  color: white;
+  background-color: red;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #16314d;
+  transition: 0.3s;
+}
+
+input:active {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+}

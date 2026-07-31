@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* 
+    flex
+    
+    1) flex container 에 설정하는 속성
+       - display : flex
+       - flex-direction : row(기본값) / column
+       - justify-content : 메인 축에서 내부 요소를 정렬하는 방식
+         - flex-start : 왼쪽에서 시작
+         - flex-end : 오른쪽에서 시작
+         - center 
+         - space-between : 요소들 사이의 공간 크기 동일하게
+         - space-evenly : 모든 빈 공간의 크기 동일하게
+         - space-around : 각 내부 요소의 양쪽에 일정한 크기의 빈 공간 배치
+
+       - align-items : 메인 축의 반대에서 내부 요소를 정렬할 방식
+
+         */
+
+.container {
+  display: flex;
+  /* flex-direction: column; */
+  /* justify-content: space-evenly; */
+  /* height: 700px; */
+  border: 4px solid;
+  gap: 1em;
+}
+
+.container div {
+  margin: 0 2px;
+  width: 33.3%;
+  height: 200px;
+  background-color: darkcyan;
+}

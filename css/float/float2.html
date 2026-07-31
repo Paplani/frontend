@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      section {
+        padding: 16px;
+        background-color: lightgray;
+        margin: 1em;
+        padding: 1em;
+        /* overflow: hidden; */
+      }
+      /* 가상요소 방법이 가장 좋아보임 */
+      section::after {
+        content: "";
+        clear: both;
+        display: block;
+      }
+      .blue,
+      .red {
+        height: 200px;
+        line-height: 200px;
+        font-size: 1.4em;
+        text-align: center;
+        color: white;
+      }
+
+      .blue {
+        float: left;
+        width: 200px;
+        background-color: slateblue;
+      }
+      .red {
+        float: left;
+        width: calc(100% - 200px);
+        background-color: tomato;
+      }
+      .empty {
+        /* clear: both; */
+      }
+    </style>
+  </head>
+  <body>
+    <section class="gray">
+      <div class="blue">보라</div>
+      <div class="red">빨강</div>
+      <div class="empty"></div>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #333338;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: #444;
+}
+
+.main-content > .panel > p,
+.main-content > .panel > h3 {
+  margin: 15px 0;
+}
+
+.main-content,
+.sidebar {
+  margin: 10px;
+  background: white;
+  padding: 6px;
+}
+
+.container {
+  display: flex;
+}
+
+.main-content {
+  flex: 3; /* flex: 3 1 0*/
+}
+
+.sidebar {
+  flex: 1; /* flex: 1 1 0*/
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}

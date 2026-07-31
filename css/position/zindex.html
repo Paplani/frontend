@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box-group {
+        display: flex;
+      }
+
+      .box-group .box {
+        width: 100px;
+        height: 100px;
+        background-color: tomato;
+        border: 4px dashed red;
+        margin-right: -30px;
+        /* 박스 내부의 숫자를 가운데에 오게 하기 위한 코드 */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .box-group .box:nth-child(2n) {
+        margin-top: 30px;
+      }
+      .box1 {
+        position: relative;
+        z-index: 1;
+      }
+      .box2 {
+        position: relative;
+      }
+      .box3 {
+        position: relative;
+        z-index: 1;
+      }
+      .box4 {
+        position: relative;
+      }
+
+      .box5 {
+        position: relative;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 요소 쌓임 순서 : 요소가 쌓여 있는 순서를 통해 어떤 요소가 사용자와 가깝게 있는지(더 위에 쌓이는지)를 결정 => z축 
+        1. static을 제외한 position 속성의 값이 있을 경우 가장 위에 쌓임(값은 무관) 
+        2. position이 모두 존재한다면 z-index 속성의 값이 높을수록 위에 쌓임
+        3. position 속성의 값이 있고, z-index 속성의 값이 같다면 html 의 마지막 코드일수록 위에 쌓임
+    -->
+    <div class="box-group">
+      <div class="box box1">1</div>
+      <div class="box box2">2</div>
+      <div class="box box3">3</div>
+      <div class="box box4">4</div>
+      <div class="box box5">5</div>
+    </div>
+  </body>
+</html>

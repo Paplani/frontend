@@ -1,0 +1,49 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* grid 레이아웃
+
+부모요소
+- display : grid;
+- grid-template-columns : 열 크기 지정
+- grid-template-rows : 행 높이 지정
+    -고정값(px, %, fr)
+- grid-auto-rows : 행 높이 자동으로 맞추기
+    - 고정값 : 내용이 많은 경우 대응이 힘듬
+    - auto
+
+자식요소
+- grid-column : 컬럼요소의 위치 변경 + span
+- grid-row : 컬럼요소의 위치 변경 + span
+*/
+
+.container {
+  padding: 0.8em;
+  background-color: lightgray;
+  display: grid;
+  /* grid-template-columns: 100px 200px 300px; */
+  /* %로 주고 gap을 하게되면 사이드에 튀어나오는 부분 생겨서 대부분 fr로 나눔 */
+  /* grid-template-columns: 3fr 7fr; */
+  grid-template-columns: repeat(5, 1fr);
+  /* grid-template-columns: 80px 1fr 2fr 80px; */
+  /* grid-template-rows: 1fr 2fr 3fr 4fr; */
+  /* grid-auto-rows: auto; */
+  grid-auto-rows: minmax(160px, 200px);
+  justify-items: center;
+  align-items: center;
+  gap: 1em;
+}
+
+.container > div {
+  padding: 1em;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background-color: slateblue;
+}
+
+.container > div > span {
+  display: inline;
+}
