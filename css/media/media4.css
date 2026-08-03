@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.row div:first-child {
+  background-color: #aaa;
+}
+.row div:nth-child(2) {
+  background-color: #bbb;
+}
+.row div:nth-child(3) {
+  background-color: #ccc;
+}
+.row div:last-child {
+  background-color: #ddd;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.column {
+  flex: 0 0 25%;
+}
+
+@media screen and (max-width: 992px) {
+  .column {
+    flex: 0 0 50%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .column {
+    flex: 0 0 100%;
+  }
+}

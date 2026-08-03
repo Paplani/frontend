@@ -1,0 +1,38 @@
+#square {
+  width: 124px;
+  height: 124px;
+  border-radius: 10%;
+  position: absolute;
+  top: 108px;
+  left: 24px;
+
+  /* transition: all 1s; */
+  /* 속성지속시간 시간함수 지연시간 */
+  /* ease-in : 천천히 가다가 빨리 */
+  /* ease-out : 빨리 가다가 천천히 */
+  /* transition: 300ms ease-out 1s; */
+
+  transition:
+    left 1s ease-in-out 1s,
+    background-color 1s,
+    transform 1s;
+}
+
+#left:not(:checked) ~ div {
+  left: 24px;
+}
+#left:checked ~ div {
+  left: 400px;
+}
+#color:not(:checked) ~ div {
+  background-color: tomato;
+}
+#color:checked ~ div {
+  background-color: darkblue;
+}
+#trans:not(:checked) ~ div {
+  transform: scale(1) rotate(0deg);
+}
+#trans:checked ~ div {
+  transform: scale(0.5) rotate(60deg);
+}

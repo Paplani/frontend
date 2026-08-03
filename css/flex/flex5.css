@@ -31,3 +31,30 @@
 .container main {
   order: 2;
 }
+
+@media screen and (max-width: 768px) {
+  .container {
+    flex-wrap: wrap;
+    gap: 0;
+  }
+  .container .main {
+    order: 1;
+  }
+  .container .left {
+    order: 2;
+    padding-left: 10px;
+  }
+  .container .right {
+    order: 3;
+  }
+  .container .sidebar {
+    width: calc(100% - 20px);
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container .sidebar {
+    width: 100%;
+  }
+}

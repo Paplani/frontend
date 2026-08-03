@@ -1,0 +1,218 @@
+/* 1. #contact 바깥쪽 왼쪽, 오른쪽 여백 0 , 배경색 --color-light-bg*/
+#contact {
+  margin-left: 0;
+  margin-right: 0;
+  background-color: var(--color-light-bg);
+}
+/* 1  .contact 바깥위 여백 3em*/
+.contact {
+  margin-top: 3em;
+}
+
+/* 2. 탭과 탭 버튼 생성 */
+/* 2. flex 레이아웃 사용 / 세번째 자식인 인풋 요소가 줄바꿈하도록, 가운데 정렬, 글자크기 --font-size-larger  */
+.contact__tab {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: var(--font-size-larger);
+}
+
+/* 2. radio 모든 속성 해제, 안쪽 여백 상하 0.8em 좌우 4em, 배경색 흰색, 커서 pointer  */
+input[type="radio"] {
+  all: unset;
+  /* padding 적용 위해 inline-block */
+  display: inline-block;
+  padding: 0.8em 4em;
+  background-color: white;
+  cursor: pointer;
+}
+
+/* 2. radio 선택되면 글자 흰색, 배경색 --color-main  */
+input[type="radio"]:checked {
+  color: white;
+  background-color: var(--color-main);
+}
+
+/* 2. 테두리 둥글게 : 상(12px), 우(0), 하(0), 좌(12)  */
+#ct_1 {
+  border-radius: 12px 12px 0 0;
+}
+/* 2. 가상 요소 추가 : 연락처 보기  */
+#ct_1::after {
+  content: "연락처 보기";
+}
+/* 2. 테두리 둥글게 : 상(0), 우(12), 하(12), 좌(0)  */
+#ct_2 {
+  border-radius: 0 12px 12px 0;
+}
+/* 2. 가상 요소 추가 : 메세지 남기기  */
+#ct_2::after {
+  content: "메세지 남기기";
+}
+
+/* 슬라이드 start */
+.contact__slides {
+  margin: 1.6em 0;
+  width: 100vw;
+  overflow: hidden;
+}
+.contact__slide-con {
+  display: flex;
+  width: 200vw;
+  transition: margin-left 500ms;
+}
+.contact__slide {
+  width: 100vw;
+}
+#ct_1:checked ~ .contact__slides .contact__slide-con {
+  margin-left: 0;
+}
+#ct_2:checked ~ .contact__slides .contact__slide-con {
+  margin-left: -100vw;
+}
+
+/* 슬라이드 end*/
+
+/* 연락처 보기 */
+/* .contact__contacts : 화면 가운데 배치, 글자 왼쪽 정렬, 글자색  --color-text */
+.contact__contacts {
+  margin: 0 auto;
+  text-align: left;
+  color: var(--color-text);
+}
+
+/* .contact__contacts th: 안쪽 오른쪽 여백 3em, 글자크기 0.9em, 굵게, 글자 오른쪽 정렬, 글자 색상 --color-dark, 오른쪽 테두리 4px 실선 --color-light-bd*/
+.contact__contacts th {
+  padding-right: 3em;
+  font-size: 0.9em;
+  font-weight: bold;
+  text-align: right;
+  color: var(--color-dark);
+  border-right: 4px var(--color-light-bd);
+}
+
+/* .contact__contacts img: 바깥 오른쪽 여백 0.1em, 너비 32px, 수직정렬 가운데 */
+.contact__contacts img {
+  margin-right: 0.1em;
+  width: 32px;
+  vertical-align: middle;
+}
+
+/* 연락처 보기 end*/
+/* 메세지 남기기 */
+.contact__leave {
+  display: inline-flex;
+  margin-top: 1em;
+  gap: 8px;
+}
+.contact__leave textarea,
+.contact__leave input[type="email"] {
+  margin: 0;
+  font-size: var(--font-size-text);
+  border: 2px solid var(--color-light-bd);
+}
+.contact__leave textarea::placeholder,
+.contact__leave input[type="email"]::placeholder {
+  color: var(--color-lighter);
+}
+
+/* 텍스트 인풋의 경우 focus-visible이 focus를 override */
+.contact__leave textarea:focus-visible,
+.contact__leave input[type="email"]:focus-visible {
+  border: 2px solid var(--color-sub);
+  outline: none;
+}
+.contact__leave div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.contact__leave textarea {
+  resize: none;
+  padding: 0.6em;
+}
+.contact__leave input[type="email"] {
+  padding: 0 0.6em;
+  height: 48px;
+  line-height: 48px;
+}
+.contact__leave button {
+  all: unset;
+  height: 64px;
+  line-height: 64px;
+  color: white;
+  background-color: var(--color-sub);
+  cursor: pointer;
+  transition: all 350ms;
+}
+.contact__leave button:hover {
+  opacity: 0.8;
+}
+.contact__leave button:focus-visible {
+  outline: 4px solid var(--color-sub);
+}
+
+@media screen and (max-width: 768px) {
+  /* 1. pc 화면에서는 contact 영역이 너비를 꽉 채우도록 */
+  input[type="radio"] {
+    padding: 0.8em, 2em;
+  }
+  /* 2. 가상 요소 추가 : 연락처  */
+  #ct_1::after {
+    content: "연락처";
+  }
+  /* 2. 가상 요소 추가 : 메세지  */
+  #ct_2::after {
+    content: "메세지";
+  }
+  /* 연락처 보기 */
+  .contact__contacts th {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+  .contact__contacts tr > * {
+    padding: 0.6em;
+  }
+  .contact__contacts td::before {
+    content: "▶";
+    margin-right: 0.6em;
+    font-size: 0.67em;
+    opacity: 0.5;
+  }
+  /* 메세지남기기 */
+  .contact__leave {
+    flex-direction: column;
+  }
+  .contact__leave textarea,
+  .contact__leave input[type="email"] {
+    width: 80vw;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  /* 1. pc 화면에서는 contact 영역이 너비를 꽉 채우도록 */
+  #contact {
+    grid-column: 1 / -1;
+  }
+  /* 연락처 보기 */
+  .contact__contacts {
+    border-spacing: 3em 1em;
+  }
+  .contact__contacts a:hover {
+    color: var(--color-emph);
+    text-decoration: underline;
+  }
+  /* 메세지 남기기 */
+  .contact__leave textarea,
+  .contact__leave input[type="email"] {
+    width: 360px;
+  }
+}

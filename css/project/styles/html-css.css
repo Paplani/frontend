@@ -1,0 +1,158 @@
+/*  아티클 레이아웃 지정
+    inline-flex 로 지정, PC 화면에서는 가로 정렬, 모바일 화면에서는 세로 정렬
+    바깥여백 상하 56px, 좌우 0, 내부 요소간 간격 56px
+*/
+.html-css {
+  display: inline-flex;
+  margin: 56px 0;
+  gap: 56px;
+}
+
+/* 
+      로고 오른쪽 설명 부분
+      바깥 위 여백 1.6em, 글자크기 --font-size-text, 글자색상 --color-text
+      strong 태그 부분 굵게
+  */
+.html-css__desc {
+  margin-top: 1.6em;
+  font-size: var(--font-size-text);
+  color: var(--color-text);
+}
+.html-css__desc strong {
+  font-weight: bold;
+}
+/* html-css__title : 글자크기 --font-size-subtitle, font-weight:100 */
+.html-css__title {
+  font-size: var(--font-size-subtitle);
+  font-weight: 100;
+}
+/* ._html html-css__title em: 글자색상 : #f16528 */
+._html .html-css__title em {
+  color: #f16528;
+}
+/* ._css html-css__title em: 글자색상 : #2965f1 */
+._css .html-css__title em {
+  color: #2965f1;
+}
+
+/* 스펙 부분 스타일링 */
+.html-css__spec {
+  margin-top: 1.6em;
+}
+.html-css__spec dd {
+  margin-right: 1.2em;
+  font-size: var(--font-size-larger);
+  color: var(--color-lighter);
+}
+.html-css__thumb {
+  position: relative;
+}
+/* 로고 아래 그림자 */
+.html-css__thumb::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  height: 10%;
+  background-color: black;
+  border-radius: 50%;
+}
+
+/* 둥둥 오르내리는 효과 */
+@keyframes logo-hover {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(10px);
+  }
+}
+
+.html-css__logo {
+  animation-name: logo-hover;
+  animation-duration: 800ms;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+/* 짙고 옅어지는 애니메이션 */
+@keyframes logo-shadow {
+  from {
+    opacity: 0.08;
+  }
+  to {
+    opacity: 0.24;
+  }
+}
+
+.html-css__thumb::after {
+  animation-name: logo-shadow;
+  animation-duration: 800ms;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+/* 초록색 체크 표시 */
+.html-css__spec dd::before {
+  content: "";
+  display: inline-block;
+  margin-right: 0.4em;
+  width: 12px;
+  height: 6px;
+  border-left: 4px solid var(--color-sub);
+  border-bottom: 4px solid var(--color-sub);
+  vertical-align: 0.2em;
+  transform: rotate(-45deg);
+}
+
+/*  html구역과 css 구역의 섹션 구분을 위해 pc 화면에서는 오른쪽 선, 모바일에서는 아래쪽 선 설정
+  4px 두께, 색상은 변수(--color-light-bg), 실선
+  */
+@media screen and (max-width: 768px) {
+  .html {
+    border-bottom: 4px solid var(--color-light-bg);
+  }
+  .html-css {
+    flex-direction: column;
+  }
+  /*  로고 크기 지정  pc 화면에서는 너비 50%, 모바일 화면에서는 너비 144px */
+  .html-css__logo {
+    width: 144px;
+  }
+  /* ._css .html-css__content : 글자 가운데 정렬 */
+  ._css .html-css__content {
+    text-align: center;
+  }
+  /* ._css .html-css__title div : inline-block, 왼쪽 정렬 */
+  ._css .html-css__title div {
+    display: inline-block;
+    text-align: left;
+  }
+  /* 로고 그림자 */
+  .html-css__thumb::after {
+    left: 25%;
+    bottom: -16%;
+    width: 50%;
+  }
+}
+@media screen and (min-width: 769px) {
+  #html {
+    border-right: 4px solid var(--color-light-bg);
+  }
+  /*  로고 크기 지정  pc 화면에서는 너비 50%, 모바일 화면에서는 너비 144px */
+  .html-css__logo {
+    width: 50%;
+  }
+  /* ._css html-css__content : 글자 가운데 정렬 */
+  ._css .html-css__content {
+    text-align: center;
+  }
+
+  /* 로고 그림자 */
+  .html-css__thumb::after {
+    left: calc(50% - 72px);
+    bottom: -24px;
+    width: 144px;
+  }
+}

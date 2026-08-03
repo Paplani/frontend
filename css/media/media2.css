@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url("../data/bg0.jpg") no-repeat fixed;
+  background-size: cover;
+}
+
+/* 태블릿 세로 */
+@media screen and (max-width: 1024px) {
+  body {
+    background: url(../data/bg1.jpg) no-repeat fixed;
+  }
+}
+
+/* 저해상도 태블릿 */
+@media screen and (max-width: 767px) {
+  body {
+    background: url(../data/bg2.jpg) no-repeat fixed;
+  }
+}
+
+/* 스마트폰 */
+@media screen and (max-width: 480px) {
+  body {
+    background: url(../data/bg3.jpg) no-repeat fixed;
+  }
+}

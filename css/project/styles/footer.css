@@ -1,0 +1,8 @@
+/* 안쪽여백 2em, 글자크기 --font-size-text, 글자 가운데 정렬, 글자 흰색, 배경색 --color-lighter */
+footer {
+  padding: 2em;
+  font-size: var(--font-size-text);
+  text-align: center;
+  color: white;
+  background-color: var(--color-lighter);
+}

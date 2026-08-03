@@ -1,0 +1,96 @@
+/* 
+    #about 영역의 배경색 옅은 베이지색 지정 (--color-bg-beige)
+    pc 의 경우 grid 레이아웃을 사용해 배경색이 가로 전체를 차지하도록 지정
+*/
+#about {
+  background-color: var(--color-bg-beige);
+}
+
+/* 
+      .about 영역을 card 레이아웃 지정하기
+      PC 의 경우 가로 / 모바일 세로 정렬
+      inline-flex : #about 영역 안에서는 inline 요소 안에서는 flex 컨테이너 역할
+  */
+.about {
+  display: inline-flex;
+  gap: 1em;
+  margin-top: 48px;
+}
+/* 
+      .about__card 
+      내부 여백 48px, 가운데 정렬, 글자색상 흰색, 배경색 변수(--color-dark)
+      테두리 둥글게 12px
+  */
+.about__card {
+  padding: 48px;
+  text-align: center;
+  color: white;
+  background-color: var(--color-dark);
+  border-radius: 12px;
+}
+
+/* 
+      .about__icon
+      크기 : 너비 120px
+      투명도 : 0.25
+  */
+.about__icon {
+  width: 120px;
+  opacity: 0.25;
+}
+
+/*  .about__title : 상단 바깥쪽 여백 0.6em, 글자 크기 변수설정(--font-size-larger) 글자 두께 : bold */
+.about__title {
+  margin-top: 0.6em;
+  font-size: var(--font-size-larger);
+  font-weight: bold;
+}
+/*  .about__title._1 : 글자색 #ffb974 */
+.about__title._1 {
+  color: #ffb974;
+}
+/*  .about__title._2 : 글자색 #6bb0f3 */
+.about__title._2 {
+  color: #6bb0f3;
+}
+/*  .about__title._3 : 글자색 #ffbdce */
+.about__title._3 {
+  color: #ffbdce;
+}
+/*  .about__text : 바깥상단여백 0.8em, 글자 크기 변수설정(--font-size-text) */
+.about__text {
+  margin-top: 0.8em;
+  font-size: var(--font-size-text);
+}
+
+@media screen and (max-width: 768px) {
+  /* 모바일 화면일 경우 .about 영역을 세로 정렬   */
+  .about {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+@media screen and (min-width: 769px) {
+  /* pc 의 경우 grid 레이아웃을 사용해 배경색이 가로 전체를 차지하도록 */
+  #about {
+    grid-column: span 2;
+  }
+  /* pc 에서는 카드너비 320px, 마우스 커서 속성 pointer, 마우스 오버 시 변화*/
+  .about__card {
+    position: relative;
+    width: 320px;
+    cursor: pointer;
+    transition: all 350ms;
+  }
+  /* 마우스 오버 시 해당 카드 외 축소하기 */
+  .about:hover .about__card:not(:hover) {
+    transform: scale(0.9);
+  }
+  /* 선택된 카드는 선명하게: 크기약간 크게, 아이콘 원래대로 */
+  .about__card:hover {
+    transform: scale(1.04);
+  }
+  .about__card:hover .about__icon {
+    opacity: 1;
+  }
+}

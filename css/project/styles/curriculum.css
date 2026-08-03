@@ -1,0 +1,146 @@
+/* 1. 섹션 설정  배경색은 어둡게(--color-dark), 텍스트는 흰색 */
+
+#curriculum {
+  background-color: var(--color-dark);
+}
+#curriculum .section__title {
+  color: white;
+}
+
+/* 3. 커리큘럼 레이아웃 지정하기 
+    .curriculum : inline-block, position: relative
+    .curriculum__list : inline-flex, 글자크기 --font-size-larger, 글자두께 100, 글자색상 흰색, 텍스트 정렬 왼쪽
+*/
+.curriculum {
+  display: inline-block;
+  position: relative;
+}
+.curriculum__list {
+  display: inline-flex;
+  font-size: var(--font-size-larger);
+  font-weight: 100;
+  color: white;
+  text-align: left;
+}
+
+/* 4. 커리큘럼 세부항목 스타일링 */
+.curriculum__list li {
+  /* 글자크기 1.1em*/
+  font-size: 1.1em;
+}
+
+/* li 요소 앞 부분에 빈 직사각형을 사용하여 원모양 */
+.curriculum__list li::before {
+  content: "";
+  position: relative;
+  z-index: 1;
+
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  vertical-align: middle;
+
+  box-sizing: border-box;
+  border-radius: 100%;
+  border: 4px solid white;
+  background-color: var(--color-dark);
+}
+
+.curriculum__progress {
+  position: absolute;
+}
+
+@media screen and (max-width: 768px) {
+  /* 3. 커리큘럼 레이아웃 지정하기     
+    .curriculm__list : 모바일 요소 방향 컬럼, 바깥 여백 상단 48px  */
+  .curriculum__list {
+    flex-direction: column;
+    margin-top: 48px;
+  }
+
+  .curriculum__list li {
+    line-height: 100px;
+    cursor: pointer;
+  }
+  .curriculum__list li span {
+    margin-left: 1.6em;
+  }
+  .curriculum__progress {
+    top: 108px;
+    left: 12px;
+    width: 0px;
+    height: 500px;
+    border-left: 6px dotted white;
+    transform: skewY(-30deg);
+  }
+}
+
+@media screen and (min-width: 769px) {
+  /* 2. pc 에서는 해당 영역이 너비를 꽉 채우도록, grid 레이아웃 span */
+  #curriculum {
+    grid-column: 1 / -1;
+    padding-bottom: 88px;
+  }
+  /* 3. 커리큘럼 레이아웃 지정하기     
+    .curriculm__list : 바깥여백 상 56px 하 56px 좌 40px  우 0  */
+  .curriculum__list {
+    margin: 56px 0 56px 40px;
+  }
+
+  /* 4. 커리큘럼 세부항목 스타일링 */
+  .curriculum__list li {
+    position: relative;
+    width: 200px;
+    height: 120px;
+  }
+  .curriculum__list li span {
+    /* 글자 수에 관계없이 통일된 위치로 기울어지도록 */
+    display: inline-block;
+    width: 164px;
+    position: absolute;
+    z-index: 1;
+    top: 84px;
+    left: 14px;
+    opacity: 0.5;
+    transform: rotate(45deg);
+  }
+  .curriculum__list li:hover span {
+    opacity: 1;
+  }
+  /* 진행바 스타일링 */
+  .curriculum__progress {
+    top: 70px;
+    left: 56px;
+    width: 1000px;
+    height: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  .curriculum__progress::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--color-sub);
+    width: 0;
+    height: 8px;
+    transition: all 1s;
+  }
+  .curriculum__list li:hover::before {
+    background-color: var(--color-sub);
+  }
+  .curriculum__list li:nth-child(2):hover ~ .curriculum__progress::after {
+    width: 200px;
+  }
+  .curriculum__list li:nth-child(3):hover ~ .curriculum__progress::after {
+    width: 400px;
+  }
+  .curriculum__list li:nth-child(4):hover ~ .curriculum__progress::after {
+    width: 600px;
+  }
+  .curriculum__list li:nth-child(5):hover ~ .curriculum__progress::after {
+    width: 800px;
+  }
+  .curriculum__list li:nth-child(6):hover ~ .curriculum__progress::after {
+    width: 1000px;
+  }
+}

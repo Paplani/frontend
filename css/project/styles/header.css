@@ -1,0 +1,147 @@
+/* 
+    .header 영역 안 요소 flex  
+    요소 정렬 : 요소를 좌우로 배치하고 여백은 사이에, 가운데 정렬
+    
+    스크롤 될때 메뉴는 항상 위에 고정    
+    다른 모든 컨텐츠보다 메뉴 목록은 항상 위에
+
+    header의 높이는 변수 적용(—height-toolbar)
+    배경색 var(--color-main)
+    글자색 흰색
+*/
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  position: sticky;
+  top: 0;
+  z-index: 2;
+
+  height: var(--height-toolbar);
+  background-color: var(--color-main);
+  color: white;
+}
+/*  로고와 링크 연동 
+  
+    안쪽여백 상하 0 좌우 24px
+    높이: --height-toolbar
+    줄높이: --height-toolbar
+    손모양*/
+.header__homelink {
+  /* inline-block으로 해야 padding이 제대로 들어감! */
+  display: inline-block;
+  padding: 0 24px;
+  height: var(--height-toolbar);
+  line-height: var(--height-toolbar);
+  cursor: pointer;
+}
+
+/*  로고의 높이 변경  */
+.header__logo {
+  height: 48px;
+  margin-bottom: 4px;
+  /* 이미지와 글자가 같이 쓰일때 아래 코드로 여백을 없앤다. */
+  vertical-align: middle;
+}
+/*  
+    네비게이션 연결  
+    header__nav-item : 글자크기 변경 (--font-size-larger 변수 지정)
+*/
+.header__nav-item {
+  font-size: var(--font-size-larger);
+}
+
+/*  
+    높이, 줄높이 : --height-toolbar
+*/
+.header__nav-item a {
+  display: inline-block;
+  height: var(--height-toolbar);
+  line-height: var(--height-toolbar);
+}
+
+/* 모바일 영역   */
+@media screen and (max-width: 768px) {
+  /* header__nav 안보이게 */
+  .header__nav {
+    display: none;
+  }
+  /* 체크박스 인풋을 버튼으로 커스터마이즈 */
+  .header__menu-btn {
+    all: unset;
+    display: block;
+    width: var(--height-toolbar);
+    height: var(--height-toolbar);
+    background-image: url(../images/menu-button.svg);
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .header__menu-btn:checked {
+    background-color: var(--color-dark);
+  }
+  .header__menu-btn:checked + .header__nav {
+    display: inherit;
+  }
+
+  .header__menu-btn:checked {
+    background-color: var(--color-dark);
+  }
+
+  /* 모바일 팝업 메뉴 팝업 넣기 (자바스크립트 영역) */
+  .header__menu-btn:checked + .header__nav {
+    display: inherit;
+    position: absolute;
+    top: var(--height-toolbar);
+    right: 0;
+    background-color: var(--color-dark);
+    padding-bottom: 1em;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  }
+  .header__nav-item {
+    width: 100vw;
+    text-align: center;
+  }
+  .header__nav-item a {
+    width: 100vw;
+  }
+  .header__nav-item:not(:last-child) {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.06);
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .header__nav-item {
+    display: inline-block;
+    position: relative;
+  }
+  .header__nav-item:last-child {
+    margin-right: 1.6em;
+  }
+
+  .header__nav-item a {
+    padding: 0 0.8em;
+  }
+  /* 마우스 오버 시 직사각형 보이게 */
+  .header__nav-item::after {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background-color: white;
+    transition: all 350ms;
+  }
+  .header__nav-item:hover::after {
+    left: 0;
+    width: 100%;
+    height: 8px;
+  }
+  /* 데스크탑 영역에서는 메뉴 버튼 숨기기 */
+  .header__menu-btn {
+    display: none;
+  }
+}

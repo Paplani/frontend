@@ -35,3 +35,50 @@ main div {
 footer {
   height: 200px;
 }
+
+header {
+  position: relative;
+  min-height: 80px;
+}
+
+#menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 1em;
+  height: 64px;
+  line-height: 64px;
+  color: #333;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  nav {
+    display: none;
+  }
+
+  #menu:hover + nav {
+    display: block;
+    text-align: right;
+  }
+
+  #menu:hover + nav li {
+    display: block;
+    margin: 0.6em;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  #menu {
+    display: none;
+  }
+
+  #wrapper {
+    grid-template-columns: 200px 1fr;
+  }
+
+  header,
+  footer {
+    grid-column: 1 / -1;
+  }
+}
