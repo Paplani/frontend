@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Light</h1>
+    <div>
+      <button type="button">Turn on the light</button>
+      <img src="./data/pic_bulboff.gif" alt="" />
+      <button type="button">Turn off the light</button>
+    </div>
+
+    <script>
+      // 이벤트 위임으로 div로 일단 받아서 체크해보자
+      //   img 찾기
+      // img.src = "변경값"
+      const onoff = document.querySelector("div");
+      const img = document.querySelector("img");
+      onoff.addEventListener("click", (e) => {
+        if (e.target.innerText === "Turn on the light") {
+          img.src = "./data/pic_bulbon.gif";
+        } else {
+          img.src = "./data/pic_bulboff.gif";
+        }
+      });
+    </script>
+  </body>
+</html>

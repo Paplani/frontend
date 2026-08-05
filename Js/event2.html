@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #box {
+        width: 500px;
+        height: 300px;
+        background-color: tomato;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box"></div>
+    <div class="color">
+      <input type="radio" name="color" id="blue" value="blue" /> 파랑
+      <input type="radio" name="color" id="red" value="red" /> 빨강
+    </div>
+
+    <script>
+      // 둘중 하나 선택시 value 가져와서 #box 배경색 변경
+      //   const blue = document.querySelector("#blue");
+      //   const red = document.querySelector("#red");
+      const box = document.querySelector("#box");
+
+      //   blue.addEventListener("click", () => {
+      //     box.style.backgroundColor = "blue";
+      //   });
+
+      //   red.addEventListener("click", () => {
+      //     box.style.backgroundColor = "red";
+      //   });
+
+      //   const rdos = document.querySelectorAll("[name='color']");
+      //   rdos[0].addEventListener("click", () => {
+      //     box.style.backgroundColor = rdos[0].value;
+      //   });
+
+      //   rdos[1].addEventListener("click", () => {
+      //     box.style.backgroundColor = rdos[1].value;
+      //   });
+
+      //   rdos.forEach((rdo, idx) => {
+      //     rdo.addEventListener("click", () => {
+      //       box.style.backgroundColor = rdo.value;
+      //     });
+      //   });
+
+      //   e 는 이벤트 객체이다.
+      // 사용자가 클릭했을 때, 그 클릭에 대한 정보를 담아서 브라우저가 함수에 전달해 줌.
+      // e 안에는 클릭 위치, 클릭한 요소, 이벤트 종류 등 여러 정보가 들어 있음. 그중 e.target은 실제로 클릭된 HTML 요소
+      //   rdos.forEach((rdo, idx) => {
+      //     rdo.addEventListener("click", (e) => {
+      //       console.log(e.target);
+      //       //   <input type="radio" id="blue" value="blue" />    이게 blue를 클릭했을때의 e.target
+      //       box.style.backgroundColor = e.target.value;
+      //     });
+      //   });
+
+      // 이벤트 위임이 된다면?
+      const color = document.querySelector(".color");
+      color.addEventListener("click", (e) => {
+        // console.log(e.target);
+        // console.log(e.currentTarget);
+
+        box.style.backgroundColor = e.target.value;
+      });
+    </script>
+  </body>
+</html>

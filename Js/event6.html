@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Light</h1>
+    <div>
+      <img src="./data/pic_bulboff.gif" alt="" />
+      <button type="button">Switch</button>
+    </div>
+
+    <script>
+      // 이벤트 위임으로 div로 일단 받아서 체크해보자
+      //   img 찾기
+      // img.src = "변경값"
+      const onoff = document.querySelector("div");
+      const img = document.querySelector("img");
+
+      let isLightOn = false;
+      onoff.addEventListener("click", (e) => {
+        // tagName을 써서 버튼만 골라내줘야함
+        // 부모에 이벤트를 한번만 등록하는 이벤트 위임에서는 tagName으로 필요한 요소만 걸러냄
+        //  버튼 종류가 여러개거나 특정 클래스만 골라야 하면 matches() 사용!
+
+        if (e.target.tagName !== "BUTTON") return;
+
+        isLightOn = !isLightOn;
+
+        if (isLightOn) {
+          img.src = "./data/pic_bulbon.gif";
+        } else {
+          img.src = "./data/pic_bulboff.gif";
+        }
+      });
+    </script>
+  </body>
+</html>

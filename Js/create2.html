@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="test"><p>반갑습니다.</p></div>
+    <script>
+      const p = "<p>안녕하세요</p>";
+
+      // 기준.insertAdjacentHTML(position, 삽입할 태그)
+      // afterbegin : 기준태그의 첫번째 자식으로
+      // afterend : 기준태그의 다음 형제요소
+      // beforebegin : 기준태그의 이전 형제요소
+      // beforeend : 기준태그의 마지막 자식요소
+
+      //   document.getElementById("test");
+      //   test가 시작되고 바로 다음에 p를 넣어라. 자식 요소로 들어감
+      //   document.querySelector("#test").insertAdjacentHTML("afterbegin", p);
+
+      //   document.querySelector("#test").insertAdjacentHTML("afterend", p);
+
+      //   document.querySelector("#test").insertAdjacentHTML("beforebegin", p);
+
+      document.querySelector("#test").insertAdjacentHTML("beforeend", p);
+    </script>
+  </body>
+</html>

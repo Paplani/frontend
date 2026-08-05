@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="" method="get">
+      <div>
+        <input type="text" name="num1" id="num1" size="5" />
+        <select name="op" id="op">
+          <option value="+">+</option>
+          <option value="-">-</option>
+          <option value="*">*</option>
+          <option value="/">/</option>
+        </select>
+        <input type="text" name="num2" id="num2" size="5" />
+        <button type="button">계산</button>
+      </div>
+    </form>
+    <div id="result"></div>
+
+    <script>
+      // 계산을 클릭하면
+      document.querySelector("button").addEventListener("click", () => {
+        const num1 = parseFloat(document.querySelector("#num1").value);
+        const num2 = parseFloat(document.querySelector("#num2").value);
+        const op = document.querySelector("#op").value;
+
+        if (Number.isNaN(num1) || Number.isNaN(num2)) {
+          alert("두칸 모두 숫자를 입력하세요.");
+          return;
+        }
+
+        if (op === "/" && num2 === 0) {
+          alert("0으로 나눌 수 없습니다. 다시 입력하세요.");
+          return;
+        }
+
+        let result = 0;
+
+        switch (op) {
+          case "+":
+            result = num1 + num2;
+            break;
+          case "-":
+            result = num1 - num2;
+            break;
+          case "*":
+            result = num1 * num2;
+            break;
+          case "/":
+            result = (num1 / num2).toFixed(3);
+            break;
+          default:
+            break;
+        }
+        // alert(`결과는 ${result}입니다.`);
+        document.querySelector("#result").textContent = result;
+
+        // js에서 소수점 n번째 반올림하는것 : num.toFixed(n)
+      });
+    </script>
+  </body>
+</html>

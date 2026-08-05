@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 class="header">Header1</h1>
+    <h2 class="header" id="header2" name="header2">Header2</h2>
+    <script>
+      // DOM 요소 삭제
+      // remove()
+      //   document.querySelector("h1").remove();
+
+      // 속성 삭제
+      const header2 = document.querySelector("#header2");
+      header2.removeAttribute("id");
+      header2.removeAttribute("name");
+    </script>
+  </body>
+</html>

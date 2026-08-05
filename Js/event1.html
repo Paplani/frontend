@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 onclick="">Hello</h1>
+    <button type="button" class="btn1">클릭1</button>
+    <button type="button" class="btn2">클릭2</button>
+    <script>
+      // h1 클릭하면 글자색 변경
+      // 이벤트(클릭, 마우스 오버, 더블클릭...)
+      // 이벤트 대상 요소 찾기
+      const h1 = document.querySelector("h1");
+      //   이벤트랑 대상 요소 연결 addEventListener
+      h1.addEventListener("click", () => {
+        h1.style.color = h1.style.color === "blue" ? "red" : "blue";
+      });
+
+      //   클릭1 버튼이 클릭 시 alert()
+      function show() {
+        alert("클릭1 click");
+      }
+      //   document.querySelector(".btn1").addEventListener("click", show);
+      //   document.querySelector(".btn2").addEventListener("click", () => alert("클릭2 click"));
+
+      const btns = document.querySelectorAll("button");
+      console.log(btns);
+      btns[0].addEventListener("click", show);
+      btns[1].addEventListener("click", () => alert("클릭2 click"));
+    </script>
+  </body>
+</html>

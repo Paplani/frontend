@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="header1">Header 1</h1>
+    <h2 id="header2"><i>Header 2</i></h2>
+    <form action="">
+      <input type="text" name="username" id="username" value="홍길동" />
+      <button type="submit">확인</button>
+    </form>
+    <script>
+      // 요소찾기
+      //   1. id가 있는 경우 : getElementById()
+      const header1 = document.getElementById("header1");
+      console.log(header1);
+      console.log(header1.innerHTML);
+      console.log(header1.innerText);
+      console.log(header1.textContent);
+
+      //   h1 텍스트 변경
+      header1.textContent = "Header1 수정";
+
+      const header2 = document.getElementById("header2");
+      console.log(header2);
+      console.log(header2.innerHTML);
+      console.log(header2.innerText);
+      console.log(header2.textContent);
+
+      //   2. selector 이용해서 찾기
+      const form = document.querySelector("form");
+      console.log(form);
+      //   찾은 form을 이용해 자식 찾기
+      const username = form.username;
+      console.log(username);
+      //   찾은 input의 value를 알고 싶음
+      console.log(username.value);
+
+      let username2 = document.querySelector("#username");
+      username2 = document.querySelector(".username");
+      username2 = document.querySelector("[data-target='#navbar']");
+
+      //   해당 선택자를 가지고 있는 모든 요소
+      document.querySelectorAll("");
+    </script>
+  </body>
+</html>

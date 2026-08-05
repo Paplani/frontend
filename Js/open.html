@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Location 객체</h1>
+    <button type="button" onclick="move()">네이버로 이동</button>
+    <div>
+      <button type="button" onclick="history.back()">이전으로</button>
+      <button type="button" onclick = "history.forward()"">다음으로</button>
+      <button type="button" onclick="history.go(-2)">지정된만큼</button>
+    </div>
+    <script>
+      // window : 브라우저 최상위 객체
+      //   window.open("http://www.naver.com");
+
+      //   url을 해당 링크로 이동시킴
+      //   location.href = "http://www.naver.com";
+      function move() {
+        // location.href = "http://www.naver.com";
+        // location.replace("http://www.naver.com");
+      }
+
+      //   history
+      history.back(); // 뒤로가기
+      history.forward(); // 앞으로 가기
+      history.go(); // 원하는 만큼 이동
+    </script>
+  </body>
+</html>

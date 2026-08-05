@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      console.log("head", document.body);
+    </script>
+  </head>
+  <body>
+    <!-- 브라우저는 서버에서 받은 문서인 html, css를 파싱하고 html => dom 트리, css로는 cssom 트리 생성 
+         DOM : 웹 페이지를 프로그래밍 언어로 조작할 수 있도록 연결시켜 줌
+         노드(node)
+            element node / attribute node / text node
+            h1           / class =        / DOM
+    -->
+
+    <h1 class="title">DOM</h1>
+    <ul>
+      <li><b>항목</b></li>
+    </ul>
+    <div>종료</div>
+    <script>
+      //   console.log("body", document.body);
+      //   childNodes : body 안에 작성한 모든 요소(엔터 포함)
+      for (let i = 0; i < document.body.childNodes.length; i++) {
+        console.log(document.body.childNodes[i]);
+      }
+      console.log("parentNode", document.body.parentNode);
+      console.log("parentElement", document.body.parentElement);
+      console.log("firstChild", document.body.firstChild);
+      console.log("firstElementChild", document.body.firstElementChild);
+      console.log("lastChild", document.body.lastChild);
+      console.log("lastElementChild", document.body.lastElementChild);
+      console.log("nextSibling", document.body.nextSibling);
+      console.log("nextElementSibling", document.body.nextElementSibling);
+      console.log("previousSibling", document.body.previousSibling);
+      console.log("previousElementSibling", document.body.previousElementSibling);
+
+      for (const element of document.body.children) {
+        console.log(element);
+      }
+    </script>
+  </body>
+</html>

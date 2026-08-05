@@ -68,4 +68,4 @@ let sumLetArr = [...varArr1, ...varArr2];
 console.log(sumLetArr);
 
 const fruits = new Array("사과", "망고", "바나나", "수박");
-fruits.forEach((i) => console.log(i));
+fruits.forEach((item, idx) => console.log(idx, item));

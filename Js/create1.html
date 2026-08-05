@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="div1">아래 쪽에 생성되는 태그</div>
+    <script>
+      // 1. DOM 요소 생성
+      // 문서가 로드되면 h1, div 생성
+      window.onload = () => {
+        let header = document.createElement("h1");
+        let content = document.createTextNode("Hello DOM");
+
+        header.appendChild(content);
+        document.body.appendChild(header);
+
+        const newDiv = document.createElement("div");
+        const newContent = document.createTextNode("greetings!");
+        newDiv.appendChild(newContent);
+
+        const currentDiv = document.getElementById("div1");
+        document.body.insertBefore(newDiv, currentDiv);
+      };
+    </script>
+  </body>
+</html>

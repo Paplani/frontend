@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="header">Header1</h1>
+    <h1 id="header2" class="one two">Header2</h1>
+    <a href="http://www.naver.com">네이버</a>
+    <script>
+      // 1. DOM 요소 생성
+      // 2. DOM 요소 수정
+      const header = document.getElementById("header");
+
+      // 속성 가져오기
+      console.log(header.id);
+      console.log(header.getAttribute("id"));
+      // 속성 변경
+      // 속성의 값을 변경
+      header.id = "title";
+      // 새롭게 속성 추가
+      header.setAttribute("name", "header");
+
+      // 스타일 변경
+      header.style.color = "blue";
+      header.style.border = "1px solid red";
+      // css에서는 font-size 로 적지만 js는 '-'를 사용못함
+      header.style.fontsize = "32px";
+
+      // a 태그 찾기
+      const aTag = document.querySelector("a");
+      console.log(aTag);
+      console.log(aTag.innerText);
+
+      //
+      const header2 = document.querySelector("#header2");
+      // 클래스명 가져오기
+      console.log(header2.classList);
+
+      // 클래스명 변경
+      header2.classList.replace("one", "header");
+      // 클래스명 추가
+      header2.classList.add("three");
+      // toggle() : 기존 클래스명이 없으면 add, 있으면 remove
+      header2.classList.toggle("two");
+
+      header2.classList.remove("header");
+    </script>
+  </body>
+</html>

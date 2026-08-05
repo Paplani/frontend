@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="one">
+      one
+      <div class="two">
+        two
+        <div class="three">three</div>
+      </div>
+    </div>
+
+    <script>
+      // 이벤트 버블링 : 이벤트가 발생한 요소에서 부모요소 방향으로 이벤트가 전파됨
+      // 이벤트가 발생한 실제 대상? e.target
+      // 지금 실행 중인 이벤트 리스너가 붙어 있는 요소 : e.currnetTarget
+      //   const divs = document.querySelectorAll("div");
+      //   divs.forEach((div) => {
+      //     div.addEventListener("click", (e) => {
+      //       console.log("e.currentTarget", e.currentTarget.className);
+      //       console.log("e.target", e.target.className);
+      //     });
+      //   });
+
+      // 이벤트 위임
+      const one = document.querySelector(".one");
+      one.addEventListener("click", (e) => {
+        console.log(e.target);
+        console.log(e.currentTarget);
+      });
+    </script>
+  </body>
+</html>
