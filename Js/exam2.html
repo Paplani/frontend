@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .navbar {
+        background-color: lightgray;
+        height: 80px;
+      }
+      .container-fluid {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      span {
+        cursor: pointer;
+      }
+      .navbar-brand {
+        width: 100px;
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .badge {
+        padding: 10px;
+        margin-top: 20px;
+        border-radius: 10px;
+        background-color: black;
+        color: white;
+      }
+      .bg-light {
+        background-color: blanchedalmond;
+      }
+      .bg-dark {
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container-fluid">
+        <span class="navbar-brand">JSShop</span>
+        <span class="badge bg-dark">Dark 🔄️</span>
+      </div>
+    </nav>
+
+    <script>
+      // Dark 🔄️ <=> Light 🔄️
+      // body background 변경 클래스명 이용 classList => add(), replace, toggle, remove
+
+      const contColor = document.querySelector(".navbar");
+      const badge = contColor.querySelector(".badge");
+
+      badge.addEventListener("click", () => {
+        if (badge.innerText === "Dark 🔄️") {
+          contColor.classList.remove("bg-light");
+          contColor.classList.add("bg-dark");
+          badge.innerText = "Light 🔄️";
+        } else {
+          contColor.classList.remove("bg-dark");
+          contColor.classList.add("bg-light");
+          badge.innerText = "Dark 🔄️";
+        }
+      });
+    </script>
+  </body>
+</html>

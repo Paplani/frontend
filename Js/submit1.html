@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .text-danger {
+        color: red;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="" method="get">
+      <div>
+        <label for="name">이름</label>
+        <input type="text" name="name" id="name" />
+        <div class="text-danger">이름을 입력해주세요</div>
+      </div>
+      <div>
+        <label for="fruits">과일 선택</label>
+        <input type="checkbox" name="fruits" id="" value="사과" />사과
+        <input type="checkbox" name="fruits" id="" value="포도" />포도
+        <input type="checkbox" name="fruits" id="" value="수박" />수박
+        <input type="checkbox" name="fruits" id="" value="딸기" />딸기
+        <div class="text-danger">과일을 선택해 주세요</div>
+      </div>
+      <button type="submit">전송</button>
+    </form>
+
+    <script>
+      // submit 이벤트
+      const form = document.querySelector("form");
+      const errMsg = document.querySelector(".text-danger");
+      form.addEventListener("submit", (e) => {
+        // 이벤트(submit)중지! => 아직 서버를 안 배워서 전송할 곳이 없기 때문
+        e.preventDefault();
+
+        // 이름 입력여부 확인
+        if (form.name.value === "") {
+          errMsg.style.display = "block";
+          //   포커스 주기
+          form.name.focus();
+          return;
+        }
+        errMsg.style.display = "none";
+
+        // 선택된 과일 가져오기
+        // form.fruits : 전체요소 가져와서 체크된 요소를 따로 찾아야함
+        const fruits = document.querySelectorAll("[type='checkbox']:checked");
+        if (fruits.length == 0) {
+          document.querySelector("form div:nth-child(2) .text-danger").style.display = "block";
+          return;
+        }
+        document.querySelector("form div:nth-child(2) .text-danger").style.display = "none";
+
+        // form subnit();
+        form.submit();
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .text-danger {
+        color: red;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="" method="get">
+      <div>
+        <label for="userid">아이디</label>
+        <input type="text" name="userid" id="userid" />
+      </div>
+      <div>
+        <label for="password">비밀번호</label>
+        <input type="password" name="password" id="password" />
+      </div>
+      <div>
+        <label for="tel">전화번호</label>
+        <input type="tel" name="tel" id="tel" />
+      </div>
+      <button type="submit">전송</button>
+    </form>
+
+    <script>
+      // submit 이벤트
+      //   검증 alert()
+
+      const form = document.querySelector("form");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        // form.userid.value의 userid는 name속성을 이용하는것. 단 input일 때
+
+        if (form.userid.value === "") {
+          alert("아이디를 입력해주세요");
+          form.userid.focus();
+          return;
+        }
+        if (form.password.value === "") {
+          alert("비밀번호를 입력해주세요");
+          form.userid.focus();
+          return;
+        }
+        if (form.tel.value === "") {
+          alert("전화번호를 입력해주세요");
+          form.userid.focus();
+          return;
+        }
+
+        form.submit();
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        width: 100vw;
+        height: 100vh;
+        background: linear-gradient(135deg, #ffe0d2, #ffd1dc, #dbeafe);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+      }
+      .user {
+        text-align: center;
+      }
+      h1 {
+        color: lightsalmon;
+        font-size: 4rem;
+        margin: 20px;
+      }
+      .result_div {
+        width: 400px;
+        text-align: center;
+      }
+      .resultDate {
+        margin-top: 10px;
+        padding-left: 25px;
+      }
+
+      .resultDate li {
+        margin-bottom: 6px;
+      }
+      .resultDate {
+        color: blue;
+        list-style: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="user">
+        <h1>영화 정보 조회하기</h1>
+        <form action="" id="search">
+          <label for="targetDate">조회 날짜</label>
+          <input type="date" name="targetDate" id="targetDate" size="5" required />
+          <button type="submit">조회!</button>
+        </form>
+      </div>
+      <div class="result_div">
+        <h2>조회 결과</h2>
+        <ul class="resultDate"></ul>
+      </div>
+    </div>
+    <script src="movie.js"></script>
+  </body>
+</html>
+
+<!-- 사용자의 날짜를 입력받아서 해당 날짜의 1위에서 10위를 조회한 후 보여주기 -->
