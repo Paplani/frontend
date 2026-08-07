@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="">
+      <div>
+        <label for="">이름1</label>
+        <input type="text" name="name1" id="name1" />
+      </div>
+      <div>
+        <label for="">이름2</label>
+        <input type="text" name="name2" id="name2" />
+      </div>
+      <div>
+        <label for="">이름3</label>
+        <input type="text" name="name3" id="name3" />
+      </div>
+      <div>
+        <select name="fruits" id="fruits">
+          <option value="">-------------------------</option>
+          <option value="사과">사과</option>
+          <option value="바나나">바나나</option>
+          <option value="딸기">딸기</option>
+          <option value="망고">망고</option>
+        </select>
+      </div>
+    </form>
+    <script>
+      // change, input, blur
+      //   change : value의 변화가 있고, focus 이동 시점에 이벤트 발생
+      // blur : focus 이동 시점에 무조건 이벤트 발생
+      // input : 입력할 때마다 이벤트 발생
+      document.querySelector("#name1").addEventListener("change", (e) => {
+        // e.target.value = e.target.value.toLowerCase();
+        alert("CHANGE");
+      });
+      document.querySelector("#name2").addEventListener("blur", (e) => {
+        // e.target.value = e.target.value.toLowerCase();
+        alert("blur");
+      });
+      document.querySelector("#name3").addEventListener("input", (e) => {
+        e.target.value = e.target.value.toLowerCase();
+      });
+      document.querySelector("#fruits").addEventListener("change", (e) => {
+        console.log(e.target.value);
+      });
+    </script>
+  </body>
+</html>
