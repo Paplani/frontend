@@ -96,10 +96,16 @@ async function loadDetail(targetMovie) {
     result += `<li>감독 : ${directors}</li>`;
 
     // 출연배우
-    let actors = "";
-    info.actors.forEach((actor) => {
-      actors += `${actor.peopleNm},`;
-    });
+    // let actors = "";
+    // info.actors.slice(0, 5).forEach((actor) => {
+    //   actors += `${actor.peopleNm},`;
+    // });
+
+    // 배우를 총 5명만 보여주고 마지막에 쉼표 없이 보여주게 하는 방법
+    const actors = info.actors
+      .slice(0, 5)
+      .map((actor) => actor.peopleNm)
+      .join(",");
 
     result += `<li>출연배우 : ${actors}</li>`;
     result += `<li>영화등급 : ${info.audits[0].watchGradeNm}</li>`;
@@ -108,3 +114,6 @@ async function loadDetail(targetMovie) {
     document.querySelector("#detail").innerHTML = result;
   } catch {}
 }
+
+// forEach() : 배열의 각 요소로 어떤 작업을 실행한다. 새 배열을 만들지 않음
+// map() : 각 요소를 변환해서 새 배열을 만든다.
