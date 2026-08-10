@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="todo.css" />
+  </head>
+  <body>
+    <div class="todo-container">
+      <h1>Todo List</h1>
+      <form action="" id="todo-form">
+        <input type="text" name="todo-input" id="todo-input" placeholder="할 일을 입력하세요" />
+        <button type="submit">추가</button>
+      </form>
+      <div class="filter">
+        <button type="button" data-filter="all">전체</button>
+        <button type="button" data-filter="active">진행중</button>
+        <button type="button" data-filter="completed">완료</button>
+      </div>
+      <ul id="todo-list"></ul>
+
+      <div class="todo-footer">
+        <span id="todo-count">남은 할 일 : 0개</span>
+        <button type="button" id="clear-completed">완료된 항목 삭제</button>
+      </div>
+    </div>
+    <script src="todo.js"></script>
+  </body>
+</html>

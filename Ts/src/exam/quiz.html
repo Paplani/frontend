@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main class="quiz-container">
+      <header class="quiz-header">
+        <h1>Javascript Auiz</h1>
+
+        <div class="quiz-info">
+          <span id="question-number">문제 1 / 5</span>
+          <span id="score">점수 : 0</span>
+        </div>
+      </header>
+
+      <!-- 진행률 -->
+      <div class="progress-container">
+        <div id="progress-bar"></div>
+      </div>
+
+      <!-- 퀴즈영역 -->
+      <section id="quiz-section">
+        <h2 id="question">문제 내용</h2>
+        <div id="choices"></div>
+        <button id="next-button" type="button" disabled>다음 문제</button>
+      </section>
+
+      <!-- 결과 영역 -->
+      <section id="result-section" class="hidden">
+        <h2>퀴즈 종료</h2>
+        <p id="result-message"></p>
+        <p id="final-score"></p>
+        <button id="restart-button" type="button">다시 시작</button>
+      </section>
+    </main>
+    <script src=""></script>
+  </body>
+</html>
