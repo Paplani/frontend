@@ -197,3 +197,6 @@ const best2 = {
     price: "4500",
     rank: 3,
 };
+// as 타입 : type assertion
+let someValue = "This is a string";
+let someValueLength = someValue.length;
