@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>0</h1>
+    <button type="button" class="increase">+</button>
+    <button type="button" class="decrease">-</button>
+    <script>
+        // + 클릭 시 h1 +1
+        // - 클릭 시 h1 -1
+        let counter = 0;
+        const increase = (e) => {
+            if (e.target.classList.contains("increase")) {
+                counter += 1;
+            } else {
+                counter -= 1;
+            }
+
+            document.querySelector("h1").innerHTML = counter;
+        };
+
+        document.querySelector(".increase").addEventListener("click", increase);
+        document.querySelector(".decrease").addEventListener("click", increase);
+    </script>
+</body>
+
+</html>
