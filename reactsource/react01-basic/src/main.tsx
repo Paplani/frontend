@@ -1,5 +1,5 @@
 import { createRoot } from "react-dom/client";
-import Switch from "./event/Switch";
+import UserForm from "./event/UserForm";
 import "./index.css";
 
-createRoot(document.getElementById("root")!).render(<Switch />);
+createRoot(document.getElementById("root")!).render(<UserForm />);

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import AddTask from "./AddTask";
 import ListTask from "./ListTask";
 
@@ -20,10 +20,27 @@ const MainTask = () => {
   // 여행 계획
   const [tasks, setTasks] = useState<TaskProps[]>(initialTasks);
 
+  // 목록 맨 아래의 HTML 요소를 기억
+  const bottomRef = useRef<HTMLDivElement>(null);
+
+  // 이전 할 일 개수를 기억
+  const previousCountRef = useRef(tasks.length);
+
+  useEffect(() => {
+    // 항목이 추가된 경우에만 스크롤, .current에 저장된 값은 변경되어도 컴포넌트가 리렌더이 안됨!
+    if (tasks.length > previousCountRef.current) {
+      bottomRef.current?.scrollIntoView({
+        // ?.scrollIntoVies :
+        behavior: "smooth",
+        block: "end", // 요소가 화면 아래쪽에 오도록 정렬
+      });
+    }
+    previousCountRef.current = tasks.length;
+  }, [tasks.length]);
+
   // 여행계획 추가 함수
   const handleAddTask = (text: string) => {
-    // tasks에 내용 추가
-    // tasks.push('') 불가능
+    // tasks에 내용 추가, tasks.push('') 불가능
     setTasks([...tasks, { id: nextId++, text: text, done: false }]);
   };
 
@@ -62,6 +79,8 @@ const MainTask = () => {
           onRemoveTask={handleRemoveTask}
           onToggleTask={handleDoneTask}
         />
+        {/* 스크롤 목적지 추가 */}
+        <div ref={bottomRef} aria-hidden="true" />
       </div>
     </div>
   );

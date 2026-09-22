@@ -27,6 +27,23 @@ const ItemTask = ({
   //   const [isDone, setIsDone] = useState(task.done);
   const [listText, setListText] = useState(task.text);
 
+  // 편집 저장 함수
+  const onSave = () => {
+    const modifiedTask = { ...task, text: listText };
+    if (listText.trim() === "") return alert("여행 계획을 입력해주세요.");
+    onEditTask(modifiedTask);
+    // 다시 입력칸 숨기고 save 버튼이 edit 버튼으로 바뀌도록
+    const changeEdit = !isEditing;
+    setIsEditing(changeEdit);
+  };
+
+  // 편집 시작 함수
+  const startEditing = () => {
+    const changedEdit = !isEditing;
+    setIsEditing(changedEdit);
+    setListText(""); // 수정할때 빈칸으로 보이도록
+  };
+
   return (
     <div className="flex items-center justify-between px-3 py-2">
       <div className="flex items-center gap-3 w-full mr-2">
@@ -51,33 +68,13 @@ const ItemTask = ({
         )}
       </div>
       <div className="flex items-center gap-2">
-        {isEditing ? (
-          <button
-            type="button"
-            onClick={() => {
-              const modifiedTask = { ...task, text: listText };
-              onEditTask(modifiedTask);
-              // 다시 입력칸 숨기고 save 버튼이 edit 버튼으로 바뀌도록
-              const changedEdit = !isEditing;
-              setIsEditing(changedEdit);
-            }}
-            className="rounded border px-3 py-2 text-sm text-green-600 hover:text-green-800"
-          >
-            Save
-          </button>
-        ) : (
-          <button
-            type="button"
-            onClick={() => {
-              const changedEdit = !isEditing;
-              setIsEditing(changedEdit);
-            }}
-            className="rounded border px-3 py-2 text-sm text-green-600 hover:text-green-800"
-          >
-            Edit
-          </button>
-        )}
-
+        <button
+          type="button"
+          onClick={isEditing ? onSave : startEditing}
+          className="rounded border px-3 py-2 text-sm text-green-600 hover:text-green-800"
+        >
+          {isEditing ? "Save" : "Edit"}
+        </button>
         <button
           type="button"
           onClick={() => onRemoveTask(task.id)}

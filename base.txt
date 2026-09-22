@@ -44,3 +44,87 @@ ts 파일 작성 => 컴파일 => js 파일 실행
 npm i -g ts-node 를 설치
 ts-node : 타입스크립트를 컴파일 없이 바로 실행
 npx ts-node src/test
+
+
+폴더 만들기
+npm create vite@latest 폴더명
+npm install tailwindcss @tailwindcss/vite
+npm install react-router-dom
+
+
+!링크 관련
+a : html태그 -> 새로고침되면서 화면이 깜빡임
+NavLink, Link : React-router-dom -> 새로고침없이 화면이 변경
+🔴 NavLink는 active클래스
+    -상단의 URL과 NavLink의 to 속상값이 일치하면 active 클래스가 자동으로 부여되는 것
+
+Outlet
+    - 중첩 라우팅에서 자식 라우트를 렌더링할 위치를 지정
+    - 공통으로 사용할 레이아웃 지정
+
+리엑트에서 'use'가 붙어있는 것들을 "훅"이라고 한다. ex:useState
+훅: React가 제공하는 특별 함수
+    - React의 기능을 사용할 수 있음
+    - 컴포넌트의 최상위에서만 호출 가능
+    - React의 상태, 생명주기 등의 기능과 연결
+
+useParams / useLocation
+
+useLocation  
+- 현재 페이지의 전체 URL 정보를 가져올 수 있는 훅
+- pathname(현재 경로)
+- search(쿼리스트링) : 문자열 형태
+
+useSearchParams
+- 현재 페이지의 쿼리 스트링을 개별항목으로 가져오거나 수정할 수 있는 훅
+
+useParams
+- 동적으로 생성되는 파라미터 가져오기
+
+컴포넌트 생명주기 : useEffect()
+마운트(화면에 그려짐), 업데이트(상태(state), 속성(props)변경되어 다시 렌더링), 언마운트(화면에서 사라짐)
+
+서버에서 데이터 가져오기(json)
+
+## font-awesome, react-icons, google-icons
+
+
+### React Compiler 가 하는 일 
+    => "부모가 렌더링 시 관련없어도 자식 렌더링이 같이 되"는 걸 막아줌 => 부모랑 자식이 관련없으면 렌더링 안되도록 함
+    => useMeno() 판단 후 적절하다고 판단ㅇ 되면 이 부분도 해결해줌
+    => useCallback() 또한 해결해줌
+
+    useMemo() : 계산결과 기억
+    useCallback() : 함수 기억(부모가 자식에게 함수를 props로 넘길때)
+    리렌더링 시 함수는 새롭게 생성됨!
+
+useReducer : 관리해야 할 상태 로직이 복잡할 때 사용
+
+useReducer() : 상태를 어떻게 변경할지 관리
+useContext() : 상태를 여러 컴포넌트에 어떻게 공유할지 관리
+
+!redux!
+1. context로 사용할 객체 생성
+2. 생성된 context 객체를 통해 provider 생성
+3. 상태를 공유할 자식 컴포넌트를 provider로 감싸기
+4. 자식 컴포넌트에서 공유된 값 사용
+-- useReducer, useContext 대체
+-- redux toolkit(redux + redux 복잡한 기능 보완)
+
+react06-hook-enhanced => npm install tailwindcss@tailwindcss/vite  
+                         npm install react-router-dom react-redux  @reduxjs/toolkit
+
+Redux-toolkit
+- 화면에서 이벤트 발생 => dispatch() => 리듀서 호출 => 리듀서 액션 분석 후 상태 변경 => 새로운 상태 반환 => 화면 렌더링
+
+immer : 알아서 불변성을 지켜준다 => 매번 복제할 필요가 없다?
+원본 수정 가능 => 배열에 push() 가능
+
+
+서버 프로그램 작성
+파이썬 - Fastapi, Django, Flask
+자바 - Spring
+
+python 개발환경
+- uv
+- python 다운로드
