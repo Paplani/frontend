@@ -1,47 +1,48 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect } from "react";
+import { deleteTodo, postTodo, putTodo } from "./apis/todoApi";
 import "./App.css";
+import Loading from "./components/Loading";
 import TodoHeader from "./components/TodoHeader";
 import TodoInsert from "./components/TodoInsert";
 import TodoList from "./components/TodoList";
 import TodoTemplate from "./components/TodoTemplate";
-import { initialTodos, type Todo, type TodoCreate } from "./types/todo";
+import useFetch from "./hooks/useFetch";
+import { type TodoCreate } from "./types/todo";
 
 function App() {
-  const [todos, setTodos] = useState<Todo[]>(initialTodos);
+  const { todos, loading, fetchData, completedFilter, setCompletedFilter } = useFetch();
 
-  // id 값 하나씩 자동으로 증가되게
-  const nextId = useRef(4);
+  const onInsert = async (todo: TodoCreate) => {
+    try {
+      const result = await postTodo(todo);
+      if (result.message) {
+        await fetchData(completedFilter);
+      }
+    } catch (error) {
+      console.error("Todo 등록 실패:", error);
+    }
+  };
 
-  const onInsert = (todo: TodoCreate) => {
-    const now = new Date();
-    const newTodo = {
-      id: nextId.current,
-      title: todo.title,
-      completed: todo.completed,
-      important: todo.important,
-      createDate: now,
-      lastModifiedDate: now,
-    };
-    console.log("newTodo:", newTodo);
-    // todos 변경
-    setTodos([...todos, newTodo]);
-    // 재렌더링이 되어도 값을 유지함
-    nextId.current += 1;
+  const onDelete = async (id: number) => {
+    const result = await deleteTodo(id);
+    if (result.message) {
+      console.log(result.message);
+      await fetchData(completedFilter);
+    }
   };
 
   // completed 수정하는 토글함수 (completed : boolean)
-  const onToggle = (id: number) => {
-    setTodos((prevTodos) =>
-      prevTodos.map((todo) =>
-        todo.id === id
-          ? {
-              ...todo,
-              completed: !todo.completed,
-              lastModifiedDate: new Date(),
-            }
-          : todo,
-      ),
-    );
+  const onToggle = async (id: number) => {
+    const updateTodo = todos.find((todo) => todo.id === id);
+    if (!updateTodo) return;
+    const completed = !updateTodo.completed;
+    const result = await putTodo(String(id), {
+      completed,
+    });
+
+    if (result.message) {
+      await fetchData(completedFilter);
+    }
   };
 
   // todos 값 확인
@@ -49,76 +50,23 @@ function App() {
     console.log("todos: ", todos);
   }, [todos]);
 
-  const onDelete = (id: number) => {
-    // todos 에서 삭제된 id와 동일한 todo가 아닌걸 찾아서 setTodos()변경
-    const filteredTodos = todos.filter((todo) => todo.id !== id);
-    setTodos(filteredTodos);
-  };
-
-  // 처음에 작성한 전체/완료/미완료 코드 => 이 경우 다른 건 다 잘 되지만 할일을 추가 할때 업데이트가 안되는 문제.
-  // const [filteredTodos, setFilteredTodos] = useState(initialTodos);
-
-  // const getTodosByCompleted = (completed: boolean | null) => {
-  //   if (completed === null) {
-  //     setFilteredTodos(todos);
-  //   } else {
-  //     const selectedTodos = todos.filter((todo) => todo.completed === completed);
-  //     setFilteredTodos(selectedTodos);
-  //   }
-  // };
-
-  // 71 ~ 90 번째 줄은 2번째로 작성한 것
   // const [valueState, setValueState] = useState<boolean | null>(null);
-  // const getTodosByCompleted = (completed: boolean | null) => {
-  //   if (completed === null) {
-  //     setValueState(null);
-  //   } else {
-  //     setValueState(completed);
-  //   }
+
+  // // 조건에 맞는 목록 추리기
+  // const getTodosByCompleted = (completed: string) => {
+  //   setCompletedFilter(completed === "" ? null : completed === "true");
   // };
-
-  // const getFilteredTodos = () => {
-  //   if (valueState === null) {
-  //     return todos;
-  //   } else {
-  //     const filteredTodos = todos.filter((todo) => todo.completed === valueState);
-  //     return filteredTodos;
-  //   }
-  // };
-
-  const [valueState, setValueState] = useState<boolean | null>(null);
-
-  // 조건에 맞는 목록 추리기
-  const getTodosByCompleted = (completed: boolean | null) => {
-    return valueState === null
-      ? todos
-      : todos.filter((todo) => todo.completed === completed);
-  };
-
-  const bottomRef = useRef<HTMLDivElement>(null);
-  const previousCountRef = useRef(todos.length);
-
-  useEffect(() => {
-    if (todos.length > previousCountRef.current) {
-      bottomRef.current?.scrollIntoView({
-        behavior: "smooth",
-        block: "end",
-      });
-    }
-    previousCountRef.current = todos.length;
-  }, [todos.length]);
 
   return (
     <>
       <TodoTemplate>
-        <TodoHeader onFilterChange={setValueState} />
+        <TodoHeader onFilterChange={setCompletedFilter} />
         <TodoInsert onInsert={onInsert} />
-        <TodoList
-          todos={getTodosByCompleted(valueState)}
-          onDelete={onDelete}
-          onToggle={onToggle}
-        />
-        <div ref={bottomRef} aria-hidden="true" />
+        {loading ? (
+          <Loading />
+        ) : (
+          <TodoList todos={todos} onDelete={onDelete} onToggle={onToggle} />
+        )}
       </TodoTemplate>
     </>
   );

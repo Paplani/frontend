@@ -18,7 +18,8 @@ const BoardEdit = () => {
       return;
     }
     try {
-      await updateBoard(id, targetBoard);
+      const result = await updateBoard(id, targetBoard);
+      console.log("수정된 board", result);
       navigate(`/boards/${id}`);
     } catch (error) {
       console.log(error);

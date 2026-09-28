@@ -20,10 +20,10 @@ const TodoListItem = ({ todo, onDelete, onToggle }: TodoProps) => {
         <button type="button" onClick={() => onToggle(id)}>
           {completed ? <MdCheckBox /> : <MdCheckBoxOutlineBlank />}
         </button>
-        <div className={`ml-2 flex items-center `}>
-          {important && (
-            <MdNotificationImportant className="mr-1 text-red-500" />
-          )}
+        <div
+          className={`ml-2 flex items-center ${completed ? "text-gray-400 line-through" : ""}`}
+        >
+          {important && <MdNotificationImportant className="mr-1 text-red-500" />}
           <span>{title}</span>
         </div>
       </div>

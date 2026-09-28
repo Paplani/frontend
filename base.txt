@@ -128,3 +128,9 @@ immer : 알아서 불변성을 지켜준다 => 매번 복제할 필요가 없다
 python 개발환경
 - uv
 - python 다운로드
+
+! todo-fastapi
+CORS policy: 동일 출처 정책 => 브라우저가 차단
+http://localhost:5173 => http://localhost:8000/todos
+
+차단해제하려면 서버 프로그램에서 CORS 설정해줘야함

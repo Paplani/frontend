@@ -2,7 +2,9 @@ import { useEffect, useState } from "react";
 import { getBoard, getComment } from "../apis/boardApi";
 import type { BoardComment } from "../types/board";
 
+
 // Custom Hook
+// 게시글과 댓글을 조회하는 훅
 const useBoard = (id: string | undefined) => {
   const [board, setBoard] = useState<BoardComment | null>(null);
   const [loading, setLoading] = useState<boolean>(true);

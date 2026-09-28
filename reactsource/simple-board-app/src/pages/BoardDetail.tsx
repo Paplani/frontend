@@ -14,7 +14,7 @@ const BoardDetail = () => {
   const onDelete = async (id: string) => {
     try {
       const result = await deleteBoard(id);
-      console.log(result);
+      console.log("삭제 후: ",result);
       navigate("/boards");
     } catch (error) {
       console.log(error);
